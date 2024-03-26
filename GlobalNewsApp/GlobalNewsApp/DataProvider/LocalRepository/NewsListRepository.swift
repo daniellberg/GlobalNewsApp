@@ -22,7 +22,7 @@ class NewsListRepository {
     func getNewsList(completion: ([NewsModel]?, Error?) -> Void){
         if let path = Bundle.main.path(forResource: "NewsList", ofType: "json") {
             do {
-                let url = URL(filePath: path)
+                let url = URL(fileURLWithPath: path)
                 let data = try Data(contentsOf: url, options: .mappedIfSafe)
                 
                 let decoder = JSONDecoder()
@@ -33,7 +33,7 @@ class NewsListRepository {
                 completion(nil, error)
             }
         } else {
-                completion(nil, NewsListError.fileNotFound)
+            completion(nil, NewsListError.fileNotFound)
         }
     }
 }
