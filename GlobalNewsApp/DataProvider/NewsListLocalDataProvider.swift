@@ -18,10 +18,9 @@ class NewsListLocalDataProvider: DataProviderManager<NewsListLocalDataProviderPr
                 return
             }
             
-            if let newModelList = newModelList {
+            if let model = newModelList {
                 self.delegate?.success(model: model)
             }
         }
     }
-    
 }
